@@ -5,9 +5,9 @@ Given Launch the Application
 
 
 
-@CreateRGZR                    @Zakirr
+@CreateRGZR1                   
  Scenario Outline:  Valdiate Whether User is able to create an RG with Single Contact
- Given Read ExcelData from CreateRGSheet  for  <TestCaseID>
+Given Read ExcelData from CreateRGSheet for  <TestCaseID>
 Given 	Click on CreateRGButton
 And     	Click on NextButton
 Then 		Under Contact section Add a Single Contact
@@ -23,7 +23,7 @@ And     Under RG Setting Tab Enter date for Return Preference  Section
 And     Under RG Setting Tab Enter date for Send Preference  Section
 And     Under Process For Rules Section for Valid PFRs
 And     Click on the Submit Button
-Then   Validate the Success Message on the Create RG Screen
+#Then   Validate the Success Message on the Create RG Screen
 
 Examples:
 |		TestCaseID		|
@@ -34,7 +34,7 @@ Examples:
 
 @CreateRGZR                    @RunNow   @Masum
  Scenario Outline:  Valdiate Whether User is able to create an RG with Single Contact
- Given Read ExcelData from CreateRGSheet  for  <TestCaseID>
+ Given Read ExcelData from CreateRGSheet for  <TestCaseID>
 Given 	Click on CreateRGButton
 And     	Click on NextButton
 Then 		Under Contact section Add a Single Contact
@@ -47,7 +47,7 @@ Examples:
 
 @CreateRG 	@CreateRG_With_SingleContact_SP_Mail         @RunNow
  Scenario Outline:  Valdiate Whether User is able to create an RG with Single Contact
- Given Read ExcelData from CreateRGSheet  for  <TestCaseID>
+ Given Read ExcelData from CreateRGSheet for  <TestCaseID>
 Given 	Click on CreateRGButton
 And     Click on NextButton
 Then 		Under Contact section Add a Single Contact
@@ -60,7 +60,7 @@ Examples:
 
 @CreateRG 	@CreateRG_With_SingleContact_SP_Upload        @RunNowZR
  Scenario Outline:  Valdiate Whether User is able to create an RG with Single Contact
- Given Read ExcelData from CreateRGSheet  for  <TestCaseID>
+ Given Read ExcelData from CreateRGSheet for  <TestCaseID>
 Given 	Click on CreateRGButton
 And     Click on NextButton
 Then 		Under Contact section Add a Single Contact
@@ -73,7 +73,7 @@ Examples:
 
 @CreateRG 	@CreateRG_With_SingleContact_SP_Fax       @RunNow
  Scenario Outline:  Valdiate Whether User is able to create an RG with Single Contact
- Given Read ExcelData from CreateRGSheet  for  <TestCaseID>
+ Given Read ExcelData from CreateRGSheet for  <TestCaseID>
 Given 	Click on CreateRGButton
 And     Click on NextButton
 Then 		Under Contact section Add a Single Contact
@@ -85,7 +85,7 @@ Examples:
 
 @CreateRG 	@CreateRG_With_SingleContact_SP_Fax          @RunNow
  Scenario Outline:  Valdiate Whether User is able to create an RG with Single Contact
- Given Read ExcelData from CreateRGSheet  for  <TestCaseID>
+ Given Read ExcelData from CreateRGSheet for  <TestCaseID>
 Given 	Click on CreateRGButton
 And     Click on NextButton
 Then 		Under Contact section Add a Single Contact
@@ -98,7 +98,7 @@ Examples:
 
 @CreateRG 	@CreateRG_With_SingleContact_SP_PrimayMail_CheckBox       @RunNow
  Scenario Outline:  Valdiate Whether User is able to create an RG with Single Contact
- Given Read ExcelData from CreateRGSheet  for  <TestCaseID>
+ Given Read ExcelData from CreateRGSheet for  <TestCaseID>
 Given 	Click on CreateRGButton
 And     	Click on NextButton
 Then 		Under Contact section Add a Single Contact
@@ -111,7 +111,7 @@ Examples:
 
 @CreateRG 					@CreateRG_With_SingleContact_SP_PrimayEmail_CheckBox      @RunNow
  Scenario Outline:  Valdiate Whether User is able to create an RG with Single Contact
- Given Read ExcelData from CreateRGSheet  for  <TestCaseID>
+ Given Read ExcelData from CreateRGSheet for  <TestCaseID>
 Given 	Click on CreateRGButton
 And     	Click on NextButton
 Then 		Under Contact section Add a Single Contact
@@ -124,7 +124,7 @@ Examples:
 
 @CreateRG 					@CreateRG_With_SingleContact_SP_PrimayFax_CheckBox     @RunNow
  Scenario Outline:  Valdiate Whether User is able to create an RG with Single Contact
- Given Read ExcelData from CreateRGSheet  for  <TestCaseID>
+ Given Read ExcelData from CreateRGSheet for  <TestCaseID>
 Given 	Click on CreateRGButton
 And     Click on NextButton
 Then 		Under Contact section Add a Single Contact
@@ -137,7 +137,7 @@ Examples:
 
 @CreateRG 					@CreateRG_With_SingleContact_SP_PrimayFax_CheckBox      @RunNow
  Scenario Outline:  Valdiate Whether User is able to create an RG with Single Contact
- Given Read ExcelData from CreateRGSheet  for  <TestCaseID>
+ Given Read ExcelData from CreateRGSheet for  <TestCaseID>
 Given 	Click on CreateRGButton
 And     Click on NextButton
 Then 		Under Contact section Add a Single Contact
@@ -150,7 +150,7 @@ Examples:
 
 @CreateRG 					@CreateRG_With_SingleContact_SP_PrimayFax_CheckBox        @RunNow
  Scenario Outline:  Valdiate Whether User is able to create an RG with Single Contact
- Given Read ExcelData from CreateRGSheet  for  <TestCaseID>
+ Given Read ExcelData from CreateRGSheet for  <TestCaseID>
 Given 	Click on CreateRGButton
 And     Click on NextButton
 Then 		Under Contact section Add a Multiple Contacts

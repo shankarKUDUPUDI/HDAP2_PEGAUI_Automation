@@ -30,7 +30,7 @@ public class ReadDataFromExcel {
 			XSSFWorkbook workbook 	= new XSSFWorkbook(fis);
 			XSSFSheet sheet 		= workbook.getSheet(sheetName);			
 			int lastRowCount 		= sheet.getLastRowNum();			
-			//System.out.println("Last Row Count is: "+lastRowCount);
+			System.out.println("fails here ");
 			
 			for(int i=0;i<lastRowCount;i=i+2)
 			{
@@ -60,6 +60,7 @@ public class ReadDataFromExcel {
 		{
 			mylogger.info("Exception Ouccred while Reading data from Excel Sheet:"+path);
 			e.printStackTrace();
+			System.out.println(e.toString());
 		}
 		
 	return hmap;

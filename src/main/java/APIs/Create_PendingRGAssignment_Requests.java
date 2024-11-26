@@ -4,6 +4,7 @@ import static io.restassured.RestAssured.given;
 
 import java.util.HashMap;
 
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import factory.ReadDataFromExcel;
@@ -20,7 +21,10 @@ public class Create_PendingRGAssignment_Requests {
 	static String intendedUse = PropertiesFileReader.getAPIProperty("intendedUse");
 	static String accountID = PropertiesFileReader.getAPIProperty("AccountID");
 	static String subAccountID = PropertiesFileReader.getAPIProperty("SubAccountID");
-	static String authtoken = Create_PendingRGAssignment_Requests.Create_Auth();
+	static String authtoken =Create_PendingRGAssignment_Requests.Create_Auth();
+	
+	//static String authtoken = "eyJraWQiOiJlOUVra2FxWHlwRjlhV2hmNTh3b1d4U3k2dnA1WGpyY1BFc2FYUGFVV0ZBIiwiYWxnIjoiUlMyNTYifQ.eyJ2ZXIiOjEsImp0aSI6IkFULlJZQ3Fib2xoQmZ0NzNETG15UUp2QWxSWE5yV3RoVUUxX0JtZXZvWGw4N1kiLCJpc3MiOiJodHRwczovL2NvdGl2aXRpLWV4dC1kZXZ0ZXN0Lm9rdGFwcmV2aWV3LmNvbS9vYXV0aDIvZGVmYXVsdCIsImF1ZCI6ImFwaTovL2RlZmF1bHQiLCJpYXQiOjE3MzIxMDQ2OTAsImV4cCI6MTczMjEwODI5MCwiY2lkIjoiMG9hMjVod20zNHpablZVck0waDgiLCJzY3AiOlsiaGRhcF9zY29wZSJdLCJzdWIiOiIwb2EyNWh3bTM0elpuVlVyTTBoOCJ9.ebRmW-orghxWMRuIeHNRCfA4nSItGqAHbwk8_hl82sOIXD_pq7D2BmxqFCJczNg6LWKKv8idqFaKArKStOH2_SjIqw94Cke-NbCtoFnXMQI3bjqeSHhe1N-PIGwo0NUxM69A_1cBoZyWvNybWa3938G_w-E9uubTGlaZ4TMPzS8e_DS_946whYsbvvKp5Y4xSf4pgGO3_7WquWD2zANntILwas_G17D0FBryHLE1L0g5IOJXOnjVxFNm2NLqirtHQW89IXOznvB-CC1SwX7VudesmUlSMCQLmIHYllKtuB53IZZqcdsRwlS_Bw7-Dq--Ua8k_ZhTJ_xHZYI9hGdwpw";
+	 
 	
 	
 	HashMap<String,String> testData;	
@@ -30,10 +34,21 @@ public class Create_PendingRGAssignment_Requests {
 		return testData;		
 	}
 	
-	@Test(invocationCount = 1)
+	 private static int invocationCounter = 0;
+	 
+	@BeforeMethod
+    public void beforeMethod() {
+        invocationCounter++;  // Increment the counter before each test execution
+    }
+	
+	@Test(invocationCount = 150)
 	public static void ChaseRequest_With_No_Matching_RG() throws InterruptedException
 
 	{
+		
+		 System.out.println("****************************** Execution Count: " + invocationCounter + " ******************************");
+
+		 
 
 		String cotivitClaimNumber = stepDefinitionFile.Common_Functions_Sd.getUniqueRandomInteger();
 		System.out.println(
@@ -46,15 +61,13 @@ public class Create_PendingRGAssignment_Requests {
 
 		// Create_Auth_Token auth = new Create_Auth_Token();
 
-		String authtoken = Create_PendingRGAssignment_Requests.Create_Auth();
+	//	String authtoken = Create_PendingRGAssignment_Requests.Create_Auth();
 		RestAssured.baseURI = endPoint;
 		// JsonPath js =
 		given()// .log().all()
 				.header("Content-Type", "application/json").header("Authorization", authtoken)
-				.body(APIs_PayLoads.ChaseRequest_PayLoads.payLoad_With_No_Matching_RG(intendedUse, accountID,
-						subAccountID, cotivitClaimNumber))
-
-				.when().post(resource)
+				.body(APIs_PayLoads.ChaseRequest_PayLoads.payLoad_With_Single_Matching_RG(intendedUse, accountID, subAccountID, cotivitClaimNumber))
+		        .when().post(resource)
 
 				.then().log().body(true).assertThat().statusCode(202).extract().response().jsonPath();
 

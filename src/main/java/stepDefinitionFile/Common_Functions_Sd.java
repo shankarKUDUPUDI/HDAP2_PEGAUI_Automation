@@ -9,6 +9,7 @@ import java.time.Duration;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 import org.apache.commons.io.FileUtils;
@@ -155,10 +156,12 @@ public class Common_Functions_Sd {
 	
 	public static String getNextReviewDate(int x)
 	{
-		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy",Locale.US);
 		Calendar c = Calendar.getInstance();
-		c.setTime(new Date()); // Using today's date
-		c.add(Calendar.DATE, x); // Adding 5 days
+		   Date currentDate = new Date(); // Use the system date
+		    System.out.println("Current Date: " + currentDate); // Debugging step
+		    c.setTime(currentDate); // Set the calendar to the current date
+		    c.add(Calendar.DATE, x);
 		String date = sdf.format(c.getTime());
 		return date;
 	}
